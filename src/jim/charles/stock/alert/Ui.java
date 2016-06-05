@@ -101,7 +101,7 @@ public class Ui
 		textInput.setBounds(155, 213, 130, 26);
 		panel.add(textInput);
 		textInput.setColumns(10);
-		
+
 		JButton btnSubmit = new JButton("Submit");
 		btnSubmit.setFont(new Font("Times New Roman", Font.PLAIN, 14));
 		btnSubmit.addActionListener(new ActionListener() {
@@ -118,31 +118,35 @@ public class Ui
 						JOptionPane.showMessageDialog(frame, "Error!\n" 
 								+ " You must enter an email or phone number!");
 					}
-					else hasContact = true;
-					
-					GetInfo.setFirstName(firstName.getText());
-					GetInfo.setLastName(lastName.getText());
-					GetInfo.setEmail(emailInput.getText());
-					GetInfo.setSymbol(symboInput.getText().toUpperCase());
-					GetInfo.setUserPrice(priceInput.getText());
-					GetInfo.setPhoneNumber(textInput.getText());
-					
-					if (hasContact)
+					else 
 					{
-					JOptionPane.showMessageDialog(frame, "Thank you for choosing StockAlert! "
-							+ GetInfo.getFirstName() + "\n An alert message has been sent to you!");
+						hasContact = true;
+
+
+						GetInfo.setFirstName(firstName.getText());
+						GetInfo.setLastName(lastName.getText());
+						GetInfo.setEmail(emailInput.getText());
+						GetInfo.setSymbol(symboInput.getText().toUpperCase());
+						GetInfo.setUserPrice(priceInput.getText());
+						GetInfo.setPhoneNumber(textInput.getText());
+
+						if (hasContact)
+						{
+							JOptionPane.showMessageDialog(frame, "Thank you for choosing StockAlert! "
+									+ GetInfo.getFirstName() + "\n An alert message has been sent to you!");
+						}
+
+						if(GetInfo.getEmail() != null && hasContact)
+						{
+							Email.sendEmail(GetInfo.getEmail(), welcomeMessage());
+						}
+						if (GetInfo.getPhoneNumber() != null && hasContact)
+						{
+							Text.sendText(welcomeMessage());
+						}
+						frame.dispose();
+						new Helper();
 					}
-					
-					if(GetInfo.getEmail() != null && hasContact)
-					{
-						Email.sendEmail(GetInfo.getEmail(), welcomeMessage());
-					}
-					if (GetInfo.getPhoneNumber() != null && hasContact)
-					{
-						Text.sendText(welcomeMessage());
-					}
-					frame.dispose();
-					new Helper();
 				}
 			}
 		});
