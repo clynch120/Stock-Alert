@@ -2,12 +2,12 @@ package jim.charles.stock.alert;
 
 public class GetInfo 
 {
-	private static String email;
-	private static String phoneNumber;
-	private static String firstName;
-	private static String lastName;
-	private static String userPrice;
-	private static String symbol;
+	private static String email = null;
+	private static String phoneNumber = null;
+	private static String firstName = null;
+	private static String lastName = null;
+	private static String userPrice = null;
+	private static String symbol = null;
 
 	/**
 	 * @return the email

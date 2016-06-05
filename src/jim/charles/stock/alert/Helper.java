@@ -5,6 +5,9 @@ import java.util.TimerTask;
 
 public class Helper 
 {
+	/**
+	 * helper lets user know when stock is at set price
+	 */
 	public Helper()
 	{
 		while (helpHelper())
@@ -17,33 +20,32 @@ public class Helper
 	{
 		if (GetInfo.getUserPrice().equals("$" + GetPrice.price()))
 		{
-			//System.out.println(GetInfo.getUserPrice().equals(GetPrice.price()));
 			if (GetInfo.getEmail() != null)
 			{
 				Email.sendEmail(GetInfo.getEmail(), alertMessage());
 			}
-			else
+			if (GetInfo.getPhoneNumber() != null)
 			{
 				Text.sendText(alertMessage());
 			}
 			return false;
 		}
-		else return true;
+		return true;
 	}
 
 	private void tenMinTimer()
 	{
-		int MINUTES = 10; // The delay in minutes
+		int minutes = 240; // The delay in minutes
 		Timer timer = new Timer();
 		timer.schedule(new TimerTask() 
 		{
 			@Override
-			// runs every MINUTES minutes.
+			// runs every minutes minutes.
 			public void run() 
 			{
 				helpHelper();
 			}
-		}, 0, 1000 * 60 * MINUTES);
+		}, 0, 1000 * 60 * minutes);
 		// 1000 milliseconds in a second * 60 per minute * the MINUTES variable. 
 	}
 

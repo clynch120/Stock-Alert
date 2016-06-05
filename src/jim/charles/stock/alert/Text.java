@@ -13,8 +13,8 @@ public class Text
 		try 
 		{
 			File file = new File("Text Message.txt");
-			BufferedWriter writer = new BufferedWriter
-				    (new OutputStreamWriter(new FileOutputStream(file, true),"UTF-8"));
+			BufferedWriter writer = new BufferedWriter(
+				    new OutputStreamWriter(new FileOutputStream(file, true),"UTF-8"));
 			
 			writer.write(message + "\n");
 			writer.newLine();

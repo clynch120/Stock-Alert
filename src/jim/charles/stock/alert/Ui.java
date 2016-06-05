@@ -32,6 +32,7 @@ public class Ui
 	private JTextField lastName;
 	private JTextField firstName;
 	private Boolean isValid = false;
+	private Boolean hasContact = false;
 
 	/**
 	 * Launch the application.
@@ -100,7 +101,7 @@ public class Ui
 		textInput.setBounds(155, 213, 130, 26);
 		panel.add(textInput);
 		textInput.setColumns(10);
-
+		
 		JButton btnSubmit = new JButton("Submit");
 		btnSubmit.setFont(new Font("Times New Roman", Font.PLAIN, 14));
 		btnSubmit.addActionListener(new ActionListener() {
@@ -112,6 +113,13 @@ public class Ui
 				}
 				else
 				{
+					if (emailInput.getText().isEmpty() && textInput.getText().isEmpty())
+					{
+						JOptionPane.showMessageDialog(frame, "Error!\n" 
+								+ " You must enter an email or phone number!");
+					}
+					else hasContact = true;
+					
 					GetInfo.setFirstName(firstName.getText());
 					GetInfo.setLastName(lastName.getText());
 					GetInfo.setEmail(emailInput.getText());
@@ -119,14 +127,17 @@ public class Ui
 					GetInfo.setUserPrice(priceInput.getText());
 					GetInfo.setPhoneNumber(textInput.getText());
 					
-					JOptionPane.showMessageDialog(frame, "Thank you for choosing StockAlert!"
-							+ "\n An alert email has been sent to you!");
-
-					if(GetInfo.getEmail() != null)
+					if (hasContact)
+					{
+					JOptionPane.showMessageDialog(frame, "Thank you for choosing StockAlert! "
+							+ GetInfo.getFirstName() + "\n An alert message has been sent to you!");
+					}
+					
+					if(GetInfo.getEmail() != null && hasContact)
 					{
 						Email.sendEmail(GetInfo.getEmail(), welcomeMessage());
 					}
-					if (GetInfo.getPhoneNumber() != null)
+					if (GetInfo.getPhoneNumber() != null && hasContact)
 					{
 						Text.sendText(welcomeMessage());
 					}
@@ -200,16 +211,18 @@ public class Ui
 		panel.add(btnFind);
 
 		JTextArea txtrInstruction = new JTextArea();
-		txtrInstruction.setText("Instruction:\nPlease fill in all the information.\nPlease hit \"find\" button before you submit the form.\nThank you again for using StockAlert!");
+		txtrInstruction.setText("Instruction:\nPlease fill in all the information.\n"
+				+ "Please hit \"find\" button before you submit the form.\n"
+				+ "Thank you again for using StockAlert!");
 		txtrInstruction.setBounds(51, 306, 383, 121);
 		panel.add(txtrInstruction);
 	}
 
 	private String welcomeMessage()
 	{
-		return "Hello "+GetInfo.getFirstName()+" " + GetInfo.getLastName()+" !\n"+
+		return "Hello "+GetInfo.getFirstName()+" " + GetInfo.getLastName()+"!\n"+
 				"Thanks for signing up for Stock Alert! \nWe will send "
-				+ "you an email when " + GetInfo.getSymbol() + " is at $" 
+				+ "you an email when " + GetInfo.getSymbol() + " is at " 
 				+ GetInfo.getUserPrice() + ". \n The current price of "
 				+ GetInfo.getSymbol() + " is $" + GetPrice.price() 
 				+ ".\n Thanks Again!";
