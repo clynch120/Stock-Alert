@@ -17,7 +17,6 @@ public class GetPrice
 		try
 		{
 			Stock stock = YahooFinance.get(GetInfo.getSymbol());
-			System.out.println(stock);
 			return stock.getQuote(true).getPrice().toString();
 		}
 		catch (IOException e) 

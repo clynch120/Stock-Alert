@@ -136,11 +136,11 @@ public class Ui
 									+ GetInfo.getFirstName() + "\n An alert message has been sent to you!");
 						}
 
-						if(GetInfo.getEmail() != null && hasContact)
+						if(!emailInput.getText().isEmpty() && hasContact)
 						{
 							Email.sendEmail(GetInfo.getEmail(), welcomeMessage());
 						}
-						if (GetInfo.getPhoneNumber() != null && hasContact)
+						if (!textInput.getText().isEmpty() && hasContact)
 						{
 							Text.sendText(welcomeMessage());
 						}

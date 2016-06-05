@@ -35,7 +35,7 @@ public class Helper
 
 	private void tenMinTimer()
 	{
-		int minutes = 240; // The delay in minutes
+		int minutes = 10; // The delay in minutes
 		Timer timer = new Timer();
 		timer.schedule(new TimerTask() 
 		{
