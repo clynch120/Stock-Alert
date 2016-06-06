@@ -12,9 +12,10 @@ public class EmailTest {
 		Assert.assertNotNull(new Email());
 	}
 	
+	@Test
 	public void sendEmailTest()
 	{
-		//Email.sendEmail("charles_loper2001@yahoo.com", "hello");
-		Email.sendEmail("charles_loper2001@yahoo.commm", "body");
+		Email.sendEmail("charles_loper2001@yahoo.com", "hello");
+		Email.sendEmail("commm", "body");
 	}
 }

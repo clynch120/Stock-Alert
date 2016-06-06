@@ -3,6 +3,7 @@ package jim.charles.stock.alert.test;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import jim.charles.stock.alert.GetInfo;
 import jim.charles.stock.alert.GetPrice;
 
 public class GetPriceTest 
@@ -16,6 +17,7 @@ public class GetPriceTest
 	@Test
 	public void priceTest()
 	{
-		Assert.assertNotNull(GetPrice.price());
+		GetInfo.setSymbol("GOOG");
+		GetPrice.price();
 	}
 }

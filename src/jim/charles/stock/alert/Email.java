@@ -14,9 +14,6 @@ public class Email
 	private static String password = "Jim101Charles";
 	static String subject = "Stock Alert";
 	static String host = "smtp.mail.yahoo.com";
-	//    static String jim = "jimzqw@gmail.com";
-	//    static String charles = "charles_loper2001@yahoo.com";
-	//    static String claire = "clairemason@ymail.com";
 
 	/**
 	 * 
@@ -60,11 +57,11 @@ public class Email
 			transport.connect(host, myEmail, password);
 			transport.sendMessage(message, message.getAllRecipients());
 			transport.close();
-			System.out.println("Sent message successfully....");
+			//System.out.println("Sent message successfully....");
 		}
-		catch (MessagingException mex) 
+		catch (MessagingException e) 
 		{
-			mex.printStackTrace();
+			e.printStackTrace();
 		}
 	}
 }

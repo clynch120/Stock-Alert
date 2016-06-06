@@ -129,12 +129,9 @@ public class Ui
 						GetInfo.setSymbol(symboInput.getText().toUpperCase());
 						GetInfo.setUserPrice(priceInput.getText());
 						GetInfo.setPhoneNumber(textInput.getText());
-
-						if (hasContact)
-						{
-							JOptionPane.showMessageDialog(frame, "Thank you for choosing StockAlert! "
-									+ GetInfo.getFirstName() + "\n An alert message has been sent to you!");
-						}
+					
+						JOptionPane.showMessageDialog(frame, "Thank you for choosing StockAlert! "
+								+ GetInfo.getFirstName() + "\n An alert message has been sent to you!");
 
 						if(!emailInput.getText().isEmpty() && hasContact)
 						{

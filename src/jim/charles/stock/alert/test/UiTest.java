@@ -12,11 +12,12 @@ public class UiTest
 	public void UiTest1()
 	{
 		Assert.assertNotNull(new Ui());
+		new Ui();
 	}
 	
 	@Test
 	public void actionTest()
 	{
-		
+		Ui.main(null);
 	}
 }
