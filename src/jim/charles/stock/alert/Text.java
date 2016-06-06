@@ -8,6 +8,13 @@ import java.io.OutputStreamWriter;
 
 public class Text 
 {
+	/**
+	 * 
+	 * @param message takes a string arg for the 
+	 * message to send
+	 * sendText sends a fake text message to
+	 * a text file called Text Message.txt
+	 */
 	public static void sendText(String message)
 	{
 		try 

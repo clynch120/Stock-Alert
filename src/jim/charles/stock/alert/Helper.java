@@ -8,6 +8,7 @@ public class Helper
 	/**
 	 * helper lets user know when stock is at set price
 	 */
+
 	public Helper()
 	{
 		while (helpHelper())
@@ -16,6 +17,12 @@ public class Helper
 		}
 	}
 
+	/**
+	 * 
+	 * @return false if stock current price meets target price
+	 * and send an alert to the user
+	 * return true if stock current price does not meet target price
+	 */
 	private boolean helpHelper()
 	{
 		if (GetInfo.getUserPrice().equals("$" + GetPrice.price()))
@@ -33,6 +40,13 @@ public class Helper
 		return true;
 	}
 
+	/**
+	 * Refresh every ten minutes 
+	 * to check if current stock price 
+	 * meets target stock price
+	 * if stock current stock price hits target price,
+	 * an alert will be sent to user
+	 */
 	private void tenMinTimer()
 	{
 		int minutes = 240; // The delay in minutes
@@ -49,6 +63,11 @@ public class Helper
 		// 1000 milliseconds in a second * 60 per minute * the MINUTES variable. 
 	}
 
+	/**
+	 * 
+	 * @return message when the stock has
+	 * reached user set price
+	 */
 	private String alertMessage()
 	{
 		return "Hello " + GetInfo.getFirstName() + ", Stock Alert here,\n We are informing you that "
