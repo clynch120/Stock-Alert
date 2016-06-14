@@ -139,7 +139,7 @@ public class Ui
 						}
 						if (!textInput.getText().isEmpty() && hasContact)
 						{
-							Text.sendText(welcomeMessage());
+							Text.sendText("Text Message.txt", welcomeMessage());
 						}
 						frame.dispose();
 						new Helper();

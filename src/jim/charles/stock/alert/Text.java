@@ -15,13 +15,14 @@ public class Text
 	 * sendText sends a fake text message to
 	 * a text file called Text Message.txt
 	 */
-	public static void sendText(String message)
+	
+	public static void sendText(String file, String message)
 	{
+		File fileToUse = new File(file);
 		try 
 		{
-			File file = new File("Text Message.txt");
 			BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(
-					new FileOutputStream(file, true),"UTF-8"));
+					new FileOutputStream(fileToUse, true),"UTF-8"));
 			
 			writer.write(message + "\n");
 			writer.newLine();

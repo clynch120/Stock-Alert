@@ -1,5 +1,7 @@
 package jim.charles.stock.alert.test;
 
+import java.io.IOException;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -12,10 +14,16 @@ public class TextTest
 	{
 		Assert.assertNotNull(new Text());
 	}
-	
+
 	@Test
 	public void sendTextTest()
 	{
-		Text.sendText("hello");
+		Text.sendText("Text Message.txt", "hello");
+	}
+
+	@Test(expectedExceptions = IOException.class)
+	public void testPrintMessage() throws IOException 
+	{	
+		throw new IOException();
 	}
 }

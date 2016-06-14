@@ -12,6 +12,8 @@ public class HelperTest
 	public void HelperTest1()
 	{
 		GetInfo.setSymbol("GOOG");
+		GetInfo.setPhoneNumber("464646");
+		GetInfo.setUserPrice("$716.55");
 		Assert.assertNotNull(new Helper());
 	}
 	
@@ -19,5 +21,11 @@ public class HelperTest
 	public void HelperTest2()
 	{
 		new Helper();
+	}
+	
+	@Test(expectedExceptions = InterruptedException.class)
+	public void testPrintMessage() throws InterruptedException 
+	{	
+		throw new InterruptedException();
 	}
 }

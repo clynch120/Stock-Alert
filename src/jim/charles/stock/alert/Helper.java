@@ -1,8 +1,5 @@
 package jim.charles.stock.alert;
 
-import java.util.Timer;
-import java.util.TimerTask;
-
 public class Helper 
 {
 	/**
@@ -11,10 +8,7 @@ public class Helper
 
 	public Helper()
 	{
-		while (helpHelper())
-		{
-			tenMinTimer();
-		}
+		tenMinTimer();
 	}
 
 	/**
@@ -33,7 +27,7 @@ public class Helper
 			}
 			if (GetInfo.getPhoneNumber() != null)
 			{
-				Text.sendText(alertMessage());
+				Text.sendText("Text Message.txt", alertMessage());
 			}
 			return false;
 		}
@@ -49,18 +43,17 @@ public class Helper
 	 */
 	private void tenMinTimer()
 	{
-		int minutes = 240; // The delay in minutes
-		Timer timer = new Timer();
-		timer.schedule(new TimerTask() 
-		{
-			@Override
-			// runs every minutes minutes.
-			public void run() 
+		int minutes = 10; // The delay in minutes
+		// 1000 milliseconds in a second * 60 per minute * the MINUTES variable. 		
+		try {
+			while (helpHelper()) 
 			{
-				helpHelper();
+
+				Thread.sleep(60 * 1000 * minutes);
 			}
-		}, 0, 1000 * 60 * minutes);
-		// 1000 milliseconds in a second * 60 per minute * the MINUTES variable. 
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 	}
 
 	/**

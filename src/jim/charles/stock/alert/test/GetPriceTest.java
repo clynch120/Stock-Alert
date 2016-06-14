@@ -1,5 +1,7 @@
 package jim.charles.stock.alert.test;
 
+import java.io.IOException;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -18,6 +20,14 @@ public class GetPriceTest
 	public void priceTest()
 	{
 		GetInfo.setSymbol("GOOG");
+		GetInfo.setPhoneNumber("464646");
+		GetInfo.setUserPrice("$716.55");
 		GetPrice.price();
+	}
+	
+	@Test(expectedExceptions = IOException.class)
+	public void testPrintMessage() throws IOException 
+	{	
+		throw new IOException();
 	}
 }

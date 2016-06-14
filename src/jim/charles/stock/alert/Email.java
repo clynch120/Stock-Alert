@@ -10,8 +10,8 @@ import javax.mail.internet.MimeMessage;
 
 public class Email 
 {
-	private static String myEmail = "stockalert101@yahoo.com";
-	private static String password = "Jim101Charles";
+	private static String myEmail = "yourEmail@yahoo.com";
+	private static String password = "yourPassword";
 	static String subject = "Stock Alert";
 	static String host = "smtp.mail.yahoo.com";
 

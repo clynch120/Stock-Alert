@@ -15,7 +15,6 @@ public class EmailTest {
 	@Test
 	public void sendEmailTest()
 	{
-		Email.sendEmail("charles_loper2001@yahoo.com", "hello");
-		Email.sendEmail("commm", "body");
+		Email.sendEmail("stockalert101@yahoo.com", "hello");
 	}
 }
